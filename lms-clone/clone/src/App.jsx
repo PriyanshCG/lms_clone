@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import "./App.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
+import StudentDashboard from "./pages/studentDashboard";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("landing");
-
   return (
-    <div>
-      {currentPage === "landing" ? (
-        <Landing onLogin={() => setCurrentPage("login")} />
-      ) : (
-        <Login />
-      )}
-    </div>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/student" element={<StudentDashboard />} />
+    </Routes>
   );
 }
 

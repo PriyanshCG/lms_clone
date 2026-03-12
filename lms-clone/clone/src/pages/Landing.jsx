@@ -1,35 +1,26 @@
 import React from "react";
 import FeatureCard from "../components/FeatureCard";
+import { useNavigate } from "react-router-dom";
 
-const Landing = ({ onLogin }) => {
+const Landing = () => {
+  const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 font-sans">
+    <div className="min-h-screen min-w-screen bg-black flex flex-col items-center justify-center text-center px-6">
+      <h1 className="text-6xl font-bold text-white">Coding</h1>
 
-      {/* Hero Section */}
-      <div className="text-center mb-16 max-w-2xl">
-        <div className="flex flex-col items-center gap-1">
-          <h1 className="text-7xl md:text-8xl font-black tracking-tight leading-none">
-            Coding
-          </h1>
-          <h1 className="text-7xl md:text-8xl font-black tracking-tight leading-none text-zinc-400">
-            Gita
-          </h1>
-        </div>
+      <h1 className="text-6xl font-bold text-gray-400">Gita</h1>
+      <p className="text-gray-400 mt-4 text-lg">
+        Smart, simple, and reliable attendance for modern classrooms.
+      </p>
 
-        <p className="text-zinc-400 mt-8 text-lg max-w-md mx-auto">
-          Smart, simple, and reliable attendance for modern classrooms.
-        </p>
+      <button
+        onClick={() => navigate("/login")}
+        className="inline-flex items-center rounded-lg mt-10 px-5 py-3 text-sm font-semibold transition-colors bg-white text-black hover:bg-neutral-200"
+      >
+        Login
+      </button>
 
-        <button
-          onClick={onLogin}
-          className="mt-10 bg-white text-black px-8 py-3 rounded-xl font-bold hover:bg-zinc-200 transition duration-300"
-        >
-          Login
-        </button>
-      </div>
-
-      {/* Feature Section */}
-      <div className="grid md:grid-cols-2 gap-6 max-w-4xl w-full">
+      <div className="mt-14 grid gap-6 sm:grid-cols-2">
         <FeatureCard
           title="Role-based dashboards"
           description="Admin, Mentor, and Student experiences tailored to their needs."
@@ -40,7 +31,6 @@ const Landing = ({ onLogin }) => {
           description="Encrypted sessions and streamlined navigation."
         />
       </div>
-
     </div>
   );
 };

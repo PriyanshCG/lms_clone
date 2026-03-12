@@ -1,68 +1,117 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginDetails } from "../utils/auth";
 
-const Login = () => {
-    const [role, setRole] = useState("Student");
+export default function Login() {
+  const [role, setRole] = useState("Student");
+  const [uid, setUid] = useState("");
+  const [password, setPassword] = useState("");
 
-    return (
-        <div className="min-h-screen bg-black text-white flex items-center justify-center px-4 font-sans">
-            <div className="bg-[#0a0a0a] border border-zinc-800 p-8 sm:p-10 rounded-2xl w-full max-w-[440px]">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl font-semibold mb-2">Welcome Back</h2>
-                    <p className="text-zinc-400 text-sm">Sign in to your account</p>
-                </div>
+  const navigate = useNavigate();
 
-                <form className="space-y-6">
-                    <div>
-                        <label className="block text-sm font-medium mb-3 text-zinc-200">Role</label>
-                        <div className="flex gap-3">
-                            {["Student", "Mentor", "Admin"].map((r) => (
-                                <button
-                                    key={r}
-                                    type="button"
-                                    onClick={() => setRole(r)}
-                                    className={`px-4 py-2 rounded-lg text-sm transition-colors border ${role === r
-                                            ? "bg-white text-black border-white font-medium"
-                                            : "bg-transparent text-zinc-400 border-zinc-800 hover:border-zinc-600 hover:text-zinc-200"
-                                        }`}
-                                >
-                                    {r}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
+  const roles = ["Student", "Mentor", "Admin"];
 
-                    <div>
-                        <label className="block text-sm font-medium mb-2 text-zinc-200">University UID</label>
-                        <input
-                            type="text"
-                            placeholder="Enter your University UID"
-                            className="w-full bg-black border border-zinc-800 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-zinc-500 transition-colors text-white placeholder:text-zinc-600"
-                        />
-                    </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-                    <div>
-                        <label className="block text-sm font-medium mb-2 text-zinc-200">Password</label>
-                        <input
-                            type="password"
-                            placeholder="••••••••"
-                            className="w-full bg-black border border-zinc-800 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-zinc-500 transition-colors text-white placeholder:text-zinc-600"
-                        />
-                    </div>
+    if (role === "Student") {
+      const success = loginDetails(uid, password);
 
-                    <button
-                        type="button"
-                        className="w-full bg-white text-black font-semibold rounded-xl px-4 py-3.5 mt-2 hover:bg-zinc-200 transition-colors"
-                    >
-                        Sign in
-                    </button>
-                </form>
+      if (!success) {
+        alert("Login failed. Please try again");
+        return;
+      }
+      navigate("/student");
+    }
+  };
 
-                <p className="text-center text-zinc-500 text-xs mt-8">
-                    Use your role-based credentials. Contact admin if you need help.
-                </p>
-            </div>
+  return (
+    <div className="min-h-screen w-full flex items-center justify-center px-4 py-10 bg-black">
+      <div className="w-full max-w-md rounded-2xl border border-white/10 bg-neutral-950/70 backdrop-blur-md shadow-xl">
+        {/* Header */}
+        <div className="p-6 pb-2 text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-white">
+            Welcome Back
+          </h2>
+
+          <p className="text-sm text-gray-400">Sign in to your account</p>
         </div>
-    );
-};
 
-export default Login;
+        {/* Form */}
+        <div className="p-6 pt-2">
+          <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Role */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200">Role</label>
+
+              <div className="flex gap-2">
+                {roles.map((r) => (
+                  <button
+                    type="button"
+                    key={r}
+                    onClick={() => setRole(r)}
+                    className={`px-3 py-2 rounded-md border text-sm transition-colors
+                      ${
+                        role === r
+                          ? "bg-white text-black border-white"
+                          : "bg-transparent text-gray-300 border-white/10 hover:bg-white/5"
+                      }
+                    `}
+                  >
+                    {r}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* UID / Email */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200">
+                {role === "Student" ? "University UID" : "Email"}
+              </label>
+
+              <input
+                type={role === "Student" ? "text" : "email"}
+                placeholder={
+                  role === "Student"
+                    ? "Enter your University UID"
+                    : "name@example.com"
+                }
+                value={uid}
+                onChange={(e) => setUid(e.target.value)}
+                className="flex h-10 w-full rounded-md border border-white/10 bg-black/60 px-3 py-2 text-sm text-white placeholder:text-gray-400 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+              />
+            </div>
+
+            {/* Password */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-200">
+                Password
+              </label>
+
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+                className="flex h-10 w-full rounded-md border border-white/10 bg-black/60 px-3 py-2 text-sm text-white placeholder:text-gray-400 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+              />
+            </div>
+
+            {/* Button */}
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center w-full rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 disabled:opacity-50 bg-white text-black hover:bg-gray-200 h-10 px-4 py-2"
+            >
+              Sign in
+            </button>
+
+            <p className="text-center text-xs text-gray-400">
+              Use your role-based credentials. Contact admin if needed.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
