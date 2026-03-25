@@ -1,11 +1,10 @@
-import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import StudentDashboard from "./pages/studentDashboard";
 
-function App() {
+export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
@@ -14,5 +13,3 @@ function App() {
     </Routes>
   );
 }
-
-export default App;
