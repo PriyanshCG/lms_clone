@@ -50,11 +50,9 @@ export default function StudentDashboard() {
         <EventsCard events={user.events} />
 
         {/* BOTTOM CARDS */}
-        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <SmallCard title="Need help?" text="Contact your mentor" />
-
           <SmallCard title="Timetable" text="Check classes (coming soon)" />
-
           <SmallCard title="Chat" text="View Chat Groups" link />
         </div>
       </div>

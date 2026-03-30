@@ -7,7 +7,7 @@ export default function ProfileCard({ user }) {
       <div className="p-4 border-b border-neutral-800">
         <div className="flex items-center gap-3">
           <img
-            src={user?.image || "https://i.pravatar.cc/100"}
+            src={user?.image || "https://avatars.githubusercontent.com/u/226024353?s=400&u=bfbea7413ba384bd76f8f8b144ddbdb864a9867c&v=4"}
             alt={user.name}
             className="w-14 h-14 rounded-full object-cover"
           />
