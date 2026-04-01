@@ -12,7 +12,7 @@ import SemesterAttendancePage from "./pages/SemesterAttendancePage";
 import FeedbackPage from "./pages/FeedbackPage";
 import WeeklySubjectFeedbackPage from "./pages/WeeklySubjectFeedbackPage";
 import ApplyLeavePage from "./pages/ApplyLeavePage";
-
+import Profile from "./pages/Profile";
 function App() {
   return (
     <Routes>
@@ -26,6 +26,7 @@ function App() {
       <Route path="/feedback" element={<FeedbackPage />} />
       <Route path="/weekly-subject-feedback" element={<WeeklySubjectFeedbackPage />} />
       <Route path="/apply-leave" element={<ApplyLeavePage />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 }

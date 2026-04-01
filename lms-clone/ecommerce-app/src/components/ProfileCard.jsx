@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ProfileCard({ user }) {
   return (
     <div className="rounded-xl border border-neutral-800 bg-neutral-900 lg:col-span-1">
       {/* HEADER */}
-      <div className="p-4 border-b border-neutral-800">
+      <Link to="/profile" className="block p-4 border-b border-neutral-800 hover:bg-neutral-800/50 transition-colors">
         <div className="flex items-center gap-3">
           <img
             src={user?.image || "https://avatars.githubusercontent.com/u/226024353?s=400&u=bfbea7413ba384bd76f8f8b144ddbdb864a9867c&v=4"}
@@ -20,7 +21,7 @@ export default function ProfileCard({ user }) {
             <div className="text-neutral-400 text-xs">{user.email}</div>
           </div>
         </div>
-      </div>
+      </Link>
 
       {/* BODY */}
       <div className="p-4">

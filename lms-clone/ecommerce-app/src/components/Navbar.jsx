@@ -26,28 +26,28 @@ export default function Navbar() {
 
           {/* DESKTOP MENU */}
           <nav className="hidden md:flex items-center gap-1 ml-2">
-            <NavLink 
+            <NavLink
               to="/student"
               className={({ isActive }) => `px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'text-neutral-300 hover:bg-neutral-800'}`}
             >
               Dashboard
             </NavLink>
 
-            <NavLink 
+            <NavLink
               to="/attendance"
               className={({ isActive }) => `px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'text-neutral-300 hover:bg-neutral-800'}`}
             >
               Attendance
             </NavLink>
 
-            <NavLink 
+            <NavLink
               to="/calendar"
               className={({ isActive }) => `px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'text-neutral-300 hover:bg-neutral-800'}`}
             >
               Calendar
             </NavLink>
 
-            <NavLink 
+            <NavLink
               to="/chat"
               className={({ isActive }) => `px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'text-neutral-300 hover:bg-neutral-800'}`}
             >
@@ -62,28 +62,28 @@ export default function Navbar() {
 
               <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-150 absolute left-0 mt-2 w-48 rounded-lg border border-neutral-800 bg-neutral-900 shadow-xl">
                 <div className="p-2 space-y-1">
-                  <NavLink 
+                  <NavLink
                     to="/semester-attendance"
                     className={({ isActive }) => `block w-full text-left px-3 py-2 text-sm rounded transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'hover:bg-neutral-800 text-neutral-300'}`}
                   >
                     Semester Attendance
                   </NavLink>
 
-                  <NavLink 
+                  <NavLink
                     to="/feedback"
                     className={({ isActive }) => `block w-full text-left px-3 py-2 text-sm rounded transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'hover:bg-neutral-800 text-neutral-300'}`}
                   >
                     Feedback
                   </NavLink>
 
-                  <NavLink 
+                  <NavLink
                     to="/weekly-subject-feedback"
                     className={({ isActive }) => `block w-full text-left px-3 py-2 text-sm rounded transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'hover:bg-neutral-800 text-neutral-300'}`}
                   >
                     Weekly Subject Feedback
                   </NavLink>
 
-                  <NavLink 
+                  <NavLink
                     to="/apply-leave"
                     className={({ isActive }) => `block w-full text-left px-3 py-2 text-sm rounded transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'hover:bg-neutral-800 text-neutral-300'}`}
                   >
@@ -128,9 +128,12 @@ export default function Navbar() {
 
               {/* MENU */}
               <div className="p-2">
-                <div className="w-full text-left text-sm px-3 py-2 rounded-md text-neutral-200 hover:bg-neutral-800 cursor-pointer">
+                <NavLink
+                  to="/profile"
+                  className="block w-full text-left text-sm px-3 py-2 rounded-md text-neutral-200 hover:bg-neutral-800 cursor-pointer"
+                >
                   View Profile
-                </div>
+                </NavLink>
 
                 <div className="w-full text-left text-sm px-3 py-2 rounded-md text-neutral-200 hover:bg-neutral-800 cursor-pointer">
                   Logout
@@ -153,7 +156,7 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden border-b border-neutral-800 bg-neutral-900/95 backdrop-blur px-4 sm:px-6 lg:px-8 py-3">
           <div className="max-w-7xl mx-auto flex flex-col gap-1">
-            <NavLink 
+            <NavLink
               to="/student"
               onClick={() => setOpen(false)}
               className={({ isActive }) => `px-3 py-2 rounded-md font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'text-neutral-300 hover:bg-neutral-800'}`}
@@ -161,7 +164,7 @@ export default function Navbar() {
               Dashboard
             </NavLink>
 
-            <NavLink 
+            <NavLink
               to="/attendance"
               onClick={() => setOpen(false)}
               className={({ isActive }) => `px-3 py-2 rounded-md font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'text-neutral-300 hover:bg-neutral-800'}`}
@@ -169,7 +172,7 @@ export default function Navbar() {
               Attendance
             </NavLink>
 
-            <NavLink 
+            <NavLink
               to="/calendar"
               onClick={() => setOpen(false)}
               className={({ isActive }) => `px-3 py-2 rounded-md font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'text-neutral-300 hover:bg-neutral-800'}`}
@@ -177,7 +180,7 @@ export default function Navbar() {
               Calendar
             </NavLink>
 
-            <NavLink 
+            <NavLink
               to="/chat"
               onClick={() => setOpen(false)}
               className={({ isActive }) => `px-3 py-2 rounded-md font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'text-neutral-300 hover:bg-neutral-800'}`}
@@ -185,7 +188,7 @@ export default function Navbar() {
               Chat
             </NavLink>
 
-            <NavLink 
+            <NavLink
               to="/semester-attendance"
               onClick={() => setOpen(false)}
               className={({ isActive }) => `px-3 py-2 rounded font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'hover:bg-neutral-800 text-neutral-300'}`}
@@ -193,7 +196,7 @@ export default function Navbar() {
               Semester Attendance
             </NavLink>
 
-            <NavLink 
+            <NavLink
               to="/feedback"
               onClick={() => setOpen(false)}
               className={({ isActive }) => `px-3 py-2 rounded font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'hover:bg-neutral-800 text-neutral-300'}`}
@@ -201,7 +204,7 @@ export default function Navbar() {
               Feedback
             </NavLink>
 
-            <NavLink 
+            <NavLink
               to="/weekly-subject-feedback"
               onClick={() => setOpen(false)}
               className={({ isActive }) => `px-3 py-2 rounded font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'hover:bg-neutral-800 text-neutral-300'}`}
@@ -209,7 +212,7 @@ export default function Navbar() {
               Weekly Subject Feedback
             </NavLink>
 
-            <NavLink 
+            <NavLink
               to="/apply-leave"
               onClick={() => setOpen(false)}
               className={({ isActive }) => `px-3 py-2 rounded font-medium transition-colors ${isActive ? 'bg-neutral-800 text-white' : 'hover:bg-neutral-800 text-neutral-300'}`}
@@ -219,9 +222,13 @@ export default function Navbar() {
 
             <div className="border-t border-neutral-800 my-2" />
 
-            <div className="px-3 py-2 hover:bg-neutral-800 rounded">
+            <NavLink
+              to="/profile"
+              onClick={() => setOpen(false)}
+              className="block px-3 py-2 hover:bg-neutral-800 rounded"
+            >
               View Profile
-            </div>
+            </NavLink>
 
             <div className="px-3 py-2 hover:bg-neutral-800 rounded">Logout</div>
           </div>

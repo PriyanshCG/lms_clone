@@ -14,7 +14,7 @@ export default function FeedbackPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!heading || !description) return;
-    
+      
     const newFeedback = {
       id: Date.now(),
       heading,
