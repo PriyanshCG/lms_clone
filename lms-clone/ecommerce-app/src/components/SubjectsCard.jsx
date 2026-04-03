@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function SubjectsCard({ subjects }) {
   return (
@@ -7,9 +8,9 @@ export default function SubjectsCard({ subjects }) {
       <div className="p-4 border-b border-neutral-800 flex justify-between">
         <div className="text-white font-semibold">Subjects</div>
 
-        <div className="text-sm text-neutral-400 cursor-pointer">
+        <Link to="/attendance" className="text-sm text-neutral-400 cursor-pointer hover:text-white transition-colors">
           View attendance
-        </div>
+        </Link>
       </div>
 
       {/* BODY */}

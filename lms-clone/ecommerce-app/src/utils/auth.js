@@ -32,8 +32,6 @@ export const students = [
       "SU0204 - OOPS",
       "SU0205 - Maths 2",
       "SU0206 - EVS",
-      "SU0207 - IR 01",
-      "SU0208 - IR 02",
     ],
 
     mentors: [

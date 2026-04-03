@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
+
 export default function Profile() {
     const data = localStorage.getItem("user");
     const user = data ? JSON.parse(data) : null;
@@ -85,7 +86,7 @@ export default function Profile() {
 
                         <DetailCard label="ADDRESS" value="C-201 Popular Paradise , Nr Vishwas City 5, Gota , Ahmedabad" />
                         <DetailCard label="PORTFOLIO" value="https://priyansh-new-portfolio.netlify.app/" isLink />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
                         <DetailCard label="RESUME" value="—" />
                         <DetailCard label="GITHUB" value="https://github.com/PriyanshCG" isLink />
                     </div>

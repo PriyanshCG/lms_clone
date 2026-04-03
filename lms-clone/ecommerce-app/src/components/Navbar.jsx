@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { Menu, X, ChevronDown, Settings } from "lucide-react";
 import { getInitials } from "../utils/getInitials";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const data = localStorage.getItem("user");
   const user = data ? JSON.parse(data) : null;
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
 
   const initials = getInitials(user?.name);
 
@@ -135,7 +141,10 @@ export default function Navbar() {
                   View Profile
                 </NavLink>
 
-                <div className="w-full text-left text-sm px-3 py-2 rounded-md text-neutral-200 hover:bg-neutral-800 cursor-pointer">
+                <div
+                  onClick={handleLogout}
+                  className="w-full text-left text-sm px-3 py-2 rounded-md text-neutral-200 hover:bg-neutral-800 cursor-pointer"
+                >
                   Logout
                 </div>
               </div>
@@ -230,7 +239,7 @@ export default function Navbar() {
               View Profile
             </NavLink>
 
-            <div className="px-3 py-2 hover:bg-neutral-800 rounded">Logout</div>
+            <div onClick={handleLogout} className="px-3 py-2 hover:bg-neutral-800 rounded cursor-pointer">Logout</div>
           </div>
         </div>
       )}
